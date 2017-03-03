@@ -1,4 +1,5 @@
 # Lab 3 - Github-Repo-Finder
+# Lab 5 - Github Repo Finder with Settings Screen
 
 Github-Repo-Finder is a GitHub Repo search app using the [GitHub API](https://developer.github.com/v3/search/#search-repositories).
 
@@ -27,6 +28,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/BconstantLee/Github-Repo-Finder/blob/master/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 <img src='https://github.com/BconstantLee/Github-Repo-Finder/blob/master/demo2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
