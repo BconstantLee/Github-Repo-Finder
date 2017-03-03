@@ -2,7 +2,7 @@
 
 Github-Repo-Finder is a GitHub Repo search app using the [GitHub API](https://developer.github.com/v3/search/#search-repositories).
 
-Time spent: 3 hours spent in total
+Time spent: 5 hours spent in total
 
 ## User Stories
 
@@ -10,6 +10,8 @@ The following **required** functionality is completed:
 
 - [X] Table rows for search results should be dynamic height according to the content height.
 - [X] Custom cells should have the proper Auto Layout constraints.
+- [X]  Filtering page with cancel and save button.
+- [X]  Allow Filtering by Number of Stars.
 
 The following **additional** features are implemented:
 
@@ -25,6 +27,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/BconstantLee/Github-Repo-Finder/blob/master/demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/BconstantLee/Github-Repo-Finder/blob/master/demo2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

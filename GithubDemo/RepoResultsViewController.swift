@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 // Main ViewController
-class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsPresentingViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -64,6 +64,7 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         cell.descrip.sizeToFit()
         
         if let imageUrl = URL(string: repo.ownerAvatarURL!) {
+//            print("enter:\(imageUrl)")
             cell.imageCell.setImageWith(imageUrl)
         } else { cell.imageCell = nil }
         
@@ -74,7 +75,7 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
     }
-
+    
     // Perform the search.
     fileprivate func doSearch() {
 
@@ -96,6 +97,24 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
             }, error: { (error) -> Void in
                 print(error)
         })
+    }
+    
+    func didSaveSettings(settings: GithubRepoSearchSettings) {
+        searchSettings = settings
+        print("star: \(searchSettings.minStars)")
+        doSearch()
+    }
+    
+    func didCancelSettings() {
+        print("star: \(searchSettings.minStars)")
+        doSearch()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as! UINavigationController
+        let vc = navController.topViewController as! SearchSettingsViewController
+        vc.settings = searchSettings  // ... Search Settings ...
+        vc.delegate = self
     }
 }
 
@@ -122,4 +141,9 @@ extension RepoResultsViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         doSearch()
     }
+}
+
+protocol SettingsPresentingViewControllerDelegate: class {
+    func didSaveSettings(settings: GithubRepoSearchSettings)
+    func didCancelSettings()
 }
